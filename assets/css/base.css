@@ -88,6 +88,10 @@ body {
     margin-left: 280px;
     padding: 2rem;
     max-width: 800px;
+    flex: 1;
+    margin-left: 280px;
+    padding: 2rem;
+    max-width: 900px;
 }
 
 .hero {
@@ -216,7 +220,11 @@ body {
     .main-content {
     margin-left: 280px;
         padding: 1.5rem;
-    }
+    flex: 1;
+    margin-left: 280px;
+    padding: 2rem;
+    max-width: 900px;
+}
     
     .container {
         flex-direction: column;
