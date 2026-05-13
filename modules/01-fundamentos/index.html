@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora de Métricas de Portafolio - Smart Portfolios Cap. 1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Calculadora de Métricas de Portafolio</h1>
+            <p>Capítulo 1: Smart Portfolios - Análisis de rendimiento y riesgo</p>
+        </header>
+        <div class="main-content">
+            <div class="input-section">
+                <h2>Datos de entrada</h2>
+                <div class="form-group">
+                    <label for="returns">Retornos mensuales (uno por línea)</label>
+                    <textarea id="returns" placeholder="Ejemplo:
+0.02
+-0.015
+0.03
+0.01
+-0.025
+0.04
+-0.005
+0.02
+0.01
+-0.01">0.02
+-0.015
+0.03
+0.01
+-0.025
+0.04
+-0.005
+0.02
+0.01
+-0.01</textarea>
+                    <p class="help-text">Ingresa los retornos en formato decimal (0.015 = 1.5%) o porcentaje (1.5%). Un retorno por línea.</p>
+                </div>
+                <div class="form-group">
+                    <label for="riskFree">Tasa libre de riesgo anual (%)</label>
+                    <input type="number" id="riskFree" value="2" step="0.1" min="0">
+                    <p class="help-text">Tasa libre de riesgo anual para calcular Sharpe y Sortino (ej: 2 para 2%)</p>
+                </div>
+                <button class="calculate-btn" id="calculateBtn">
+                    <span>📊</span> Calcular todas las métricas
+                </button>
+            </div>
+            
+            <div class="results-section" id="resultsSection" style="display: none;">
+                <h2>Resultados del análisis</h2>
+                <div class="metrics-grid" id="metricsGrid">
+                    <!-- Las métricas se insertarán aquí mediante JavaScript -->
+                </div>
+            </div>
+            
+            <div id="errorMessage" style="display: none; padding: 1.5rem; background: #fff3cd; border: 1px solid #ffeaa7; border-radius: 4px; margin-bottom: 2rem; color: #856404;">
+                <strong>Error:</strong> <span id="errorText"></span>
+            </div>
+        </div>
+        <div class="footer">
+            <p>Herramienta educativa basada en <em>Smart Portfolios</em> de Robert Carver. <br>
+            Creado por <a href="https://masdividendos.com" target="_blank">MasDividendos.com</a> | Licencia MIT</p>
+        </div>
+    </div>
+
+    <script src="../assets/js/utils.js"></script>
+    <script src="../assets/js/metrics-calculator.js"></script>
+</body>
+</html>

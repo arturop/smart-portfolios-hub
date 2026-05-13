@@ -1,0 +1,18 @@
+{
+  "name": "Smart Portfolios Hub",
+  "description": "Herramientas interactivas basadas en Smart Portfolios de Robert Carver",
+  "modules": [
+    {
+      "id": "01-fundamentos",
+      "title": "Cap\u00edtulo 1: M\u00e9tricas de Rendimiento y Riesgo",
+      "description": "Calculadora de m\u00e9tricas clave: CAGR, volatilidad, Sharpe, Sortino, Calmar, m\u00e1ximo drawdown, tasa de aciertos, etc.",
+      "path": "modules/01-fundamentos/index.html"
+    },
+    {
+      "id": "02-costos-trading",
+      "title": "Cap\u00edtulo 2: Costes y Fricci\u00f3n de Trading",
+      "description": "Simulador del impacto de comisiones, spread y slippage sobre la rentabilidad.",
+      "path": "modules/02-costos-trading/index.html"
+    }
+  ]
+}
