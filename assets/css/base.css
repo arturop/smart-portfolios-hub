@@ -209,10 +209,12 @@ body {
         width: 100%;
         height: auto;
         position: relative;
+    max-width: 900px;
+    margin-left: 280px;
     }
     
     .main-content {
-        margin-left: 0;
+    margin-left: 280px;
         padding: 1.5rem;
     }
     
