@@ -211,30 +211,13 @@ body {
         width: 100%;
         height: auto;
         position: relative;
-    max-width: 900px;
-    margin-left: 280px;
     }
     
-    .main-content {
-    flex: 1;
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 2rem;
-}
-    
-    .container {
-        flex-direction: column;
-    }
-}
-    .sidebar {
-        width: 100%;
-        height: auto;
-        position: relative;
-    }
     .main-content {
         margin-left: 0;
         padding: 1.5rem;
     }
+    
     .container {
         flex-direction: column;
     }
