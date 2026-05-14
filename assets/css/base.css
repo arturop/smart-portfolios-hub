@@ -28,8 +28,8 @@ body {
 
 /* MOBILE FIRST: Default layout is stacked (sidebar on top, content below) */
 .container {
-    display: flex;
-    flex-direction: column; /* DEFAULT: vertical stack for mobile */
+    display: flex !important;
+    flex-direction: column !important; /* DEFAULT: vertical stack for mobile */
     min-height: 100vh;
 }
 
@@ -216,11 +216,11 @@ body {
 /* On tablets and desktops (768px and wider), switch to side-by-side layout */
 @media (min-width: 768px) {
     .container {
-        flex-direction: row; /* Desktop: sidebar + content side by side */
+        flex-direction: row !important; /* Desktop: sidebar + content side by side */
     }
     
     .sidebar {
-        width: 260px;
+        width: 260px !important;
         max-width: 20vw;
         min-width: 200px;
         height: auto;
