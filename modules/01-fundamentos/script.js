@@ -59,7 +59,7 @@ window.calculateMetrics = function() {
     const riskFreeMonthly = Math.pow(1 + riskFreeAnnual, 1/12) - 1;
     
     console.log('Calculando métricas...');
-    const metrics = calculateAllMetrics(returns, riskFreeMonthly);
+    const metrics = calculateAllMetrics(returns, riskFreeMonthly, riskFreeAnnual);
     console.log('Métricas calculadas:', metrics);
     
     if (metricsGrid && resultsSection) {
@@ -69,7 +69,7 @@ window.calculateMetrics = function() {
     }
 };
 
-function calculateAllMetrics(returns, riskFreeMonthly) {
+function calculateAllMetrics(returns, riskFreeMonthly, riskFreeAnnual) {
     const n = returns.length;
     
     // 1. Retorno total y CAGR
@@ -87,8 +87,8 @@ function calculateAllMetrics(returns, riskFreeMonthly) {
     const variance = returns.reduce((sum, r) => sum + Math.pow(r - mean, 2), 0) / n;
     const volatility = Math.sqrt(variance) * Math.sqrt(12);
     
-    // 3. Sharpe Ratio
-    const excessReturn = cagr - (riskFreeInputValue || 0) / 100;
+    // 3. Ratio de Sharpe
+    const excessReturn = cagr - riskFreeAnnual; // ambos anuales, riskFreeAnnual ya está en decimal
     const sharpe = volatility !== 0 ? excessReturn / volatility : 0;
     
     // 4. Sortino Ratio
