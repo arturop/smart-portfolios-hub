@@ -28,13 +28,36 @@ body {
 
 /* MOBILE FIRST: Default layout is stacked (sidebar on top, content below) */
 .container {
-    display: flex !important;
-    flex-direction: column !important; /* DEFAULT: vertical stack for mobile */
+    display: grid;
+    grid-template-areas: 
+        "header"
+        "sidebar"
+        "main"
+        "footer";
+    grid-template-columns: 1fr;
     min-height: 100vh;
+}
+
+/* HEADER */
+header {
+    grid-area: header;
+    padding: 2rem;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+}
+
+header h1 {
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    color: var(--text-muted);
 }
 
 /* SIDEBAR - FULL WIDTH ON MOBILE */
 .sidebar {
+    grid-area: sidebar;
     width: 100%;
     height: auto;
     background: var(--surface);
@@ -42,7 +65,6 @@ body {
     border-bottom: 1px solid var(--border);
     padding: 2rem 1.5rem;
     overflow-y: auto;
-    margin-bottom: 2rem;
 }
 
 .sidebar h2 {
@@ -85,9 +107,20 @@ body {
     flex-grow: 1;
 }
 
+/* Estilo para enlace activo en sidebar */
+.nav-link.active {
+    background-color: var(--primary);
+    color: white;
+    font-weight: 500;
+}
+
+.nav-link.active:hover {
+    background-color: var(--primary-dark);
+}
+
 /* MAIN CONTENT - CENTERED WITH MAX WIDTH FOR READABILITY */
 .main-content {
-    flex: 1;
+    grid-area: main;
     max-width: 900px;
     margin: 0 auto; /* Center horizontally */
     padding: 2rem;
@@ -195,6 +228,7 @@ body {
 
 /* FOOTER */
 .footer {
+    grid-area: footer;
     text-align: center;
     padding: 2rem;
     color: var(--text-muted);
@@ -216,17 +250,18 @@ body {
 /* On tablets and desktops (768px and wider), switch to side-by-side layout */
 @media (min-width: 768px) {
     .container {
-        flex-direction: row !important; /* Desktop: sidebar + content side by side */
+        grid-template-areas: 
+            "header header"
+            "sidebar main"
+            "footer footer";
+        grid-template-columns: 260px 1fr;
     }
     
     .sidebar {
-        width: 260px !important;
-        max-width: 20vw;
-        min-width: 200px;
+        width: auto;
         height: auto;
         border-right: 1px solid var(--border);
         border-bottom: none;
-        margin-bottom: 0;
     }
     
     .main-content {
@@ -265,15 +300,4 @@ body {
     .main-content {
         padding: 1rem;
     }
-}
-
-/* Estilo para enlace activo en sidebar */
-.nav-link.active {
-    background-color: var(--primary);
-    color: white;
-    font-weight: 500;
-}
-
-.nav-link.active:hover {
-    background-color: var(--primary-dark);
 }
