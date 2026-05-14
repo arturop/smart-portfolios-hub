@@ -1,0 +1,296 @@
+/* Smart Portfolios Hub - NUEVO CSS LIMPIO */
+:root {
+    --primary: #667eea;
+    --primary-dark: #5a67d8;
+    --secondary: #764ba2;
+    --background: #f9f9f9;
+    --surface: #ffffff;
+    --border: #e2e8f0;
+    --text: #2d3748;
+    --text-muted: #718096;
+    --success: #38a169;
+    --warning: #dd6b20;
+    --error: #e53e3e;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text);
+    background-color: var(--background);
+}
+
+/* LAYOUT PRINCIPAL CON CSS GRID */
+.container {
+    display: grid;
+    min-height: 100vh;
+}
+
+/* HEADER - SIEMPRE ARRIBA */
+header {
+    grid-column: 1 / -1;
+    padding: 2rem;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+}
+
+header h1 {
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    color: var(--text-muted);
+}
+
+/* FOOTER - SIEMPRE ABAJO */
+.footer {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    border-top: 1px solid var(--border);
+    margin-top: 3rem;
+}
+
+.footer a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+/* MÓVIL (<768px): SIDEBAR ARRIBA, CONTENIDO ABAJO */
+@media (max-width: 767px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+    
+    .sidebar {
+        grid-column: 1 / -1;
+        width: 100%;
+        background: var(--surface);
+        border-bottom: 1px solid var(--border);
+        padding: 2rem 1.5rem;
+    }
+    
+    .main-content {
+        grid-column: 1 / -1;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+}
+
+/* ESCRITORIO (≥768px): SIDEBAR AL LADO, CONTENIDO A LA DERECHA */
+@media (min-width: 768px) {
+    .container {
+        grid-template-columns: 260px 1fr;
+    }
+    
+    .sidebar {
+        grid-column: 1;
+        width: 260px;
+        background: var(--surface);
+        border-right: 1px solid var(--border);
+        padding: 2rem 1.5rem;
+        overflow-y: auto;
+    }
+    
+    .main-content {
+        grid-column: 2;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+}
+
+/* SIDEBAR ESTILOS */
+.sidebar h2 {
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    font-size: 1.25rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.nav-list {
+    list-style: none;
+}
+
+.nav-item {
+    margin-bottom: 0.5rem;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+    color: var(--text);
+    border-radius: 4px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.nav-link:hover {
+    background-color: var(--primary);
+    color: white;
+}
+
+.nav-link .nav-icon {
+    margin-right: 0.75rem;
+    font-size: 1.1rem;
+}
+
+.nav-link .nav-text {
+    flex-grow: 1;
+}
+
+.nav-link.active {
+    background-color: var(--primary);
+    color: white;
+    font-weight: 500;
+}
+
+.nav-link.active:hover {
+    background-color: var(--primary-dark);
+}
+
+/* HERO SECTION */
+.hero {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.hero h2 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+.hero p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+/* FEATURES GRID */
+.features {
+    display: grid;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.feature-card {
+    background: var(--surface);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    border-left: 4px solid var(--primary);
+}
+
+.feature-card h3 {
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.feature-card p {
+    color: var(--text-muted);
+}
+
+/* HOW IT WORKS & ABOUT SECTIONS */
+.how-it-works, .about {
+    margin-bottom: 3rem;
+}
+
+.how-it-works h2, .about h2 {
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.steps {
+    list-style: none;
+}
+
+.steps li {
+    margin-bottom: 2rem;
+    padding-left: 2rem;
+    position: relative;
+}
+
+.steps li h3 {
+    color: var(--secondary);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.steps li::before {
+    content: counter(step);
+    counter-increment: step;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: var(--primary);
+    color: white;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.about p {
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+/* AJUSTES PARA PANTALLAS MUY PEQUEÑAS */
+@media (max-width: 480px) {
+    .hero h2 {
+        font-size: 1.5rem;
+    }
+    
+    .steps li {
+        padding-left: 1.5rem;
+    }
+    
+    .steps li::before {
+        width: 1.5rem;
+        height: 1.5rem;
+        font-size: 0.8rem;
+    }
+    
+    .sidebar {
+        padding: 1.5rem 1rem;
+    }
+    
+    .main-content {
+        padding: 1rem;
+    }
+}
+
+/* AJUSTES PARA PANTALLAS GRANDES */
+@media (min-width: 1200px) {
+    .main-content {
+        max-width: 1000px;
+    }
+}
