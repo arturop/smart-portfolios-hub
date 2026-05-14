@@ -1,4 +1,4 @@
-/* Base styles for Smart Portfolios Hub */
+/* Base styles for Smart Portfolios Hub - FINAL FIX */
 :root {
     --primary: #667eea;
     --primary-dark: #5a67d8;
@@ -26,12 +26,15 @@ body {
     background-color: var(--background);
 }
 
+/* MAIN LAYOUT CONTAINER - EXPLICIT ROW DIRECTION */
 .container {
     display: flex;
+    flex-direction: row; /* EXPLICITLY SET TO ROW */
     min-height: 100vh;
+    position: relative;
 }
 
-/* Sidebar styles */
+/* SIDEBAR - FIXED WIDTH, NO POSITIONING THAT INTERFERES */
 .sidebar {
     width: 280px;
     flex-shrink: 0;
@@ -39,10 +42,7 @@ body {
     border-right: 1px solid var(--border);
     padding: 2rem 1.5rem;
     overflow-y: auto;
-    position: sticky;
-    top: 0;
-    left: 0;
-    height: 100vh;
+    /* REMOVED: position, top, left, height - these interfere with flex */
 }
 
 .sidebar h2 {
@@ -85,16 +85,17 @@ body {
     flex-grow: 1;
 }
 
-/* Main content styles */
+/* MAIN CONTENT - FLEXIBLE WITH CENTERING */
 .main-content {
-    flex: 1;
+    flex: 1 1 auto; /* grow, shrink, basis */
     max-width: 900px;
     margin: 0 auto;
     padding: 2rem;
     width: 100%;
+    min-width: 0; /* Critical for flex items */
 }
 
-/* Content sections */
+/* HERO SECTION */
 .hero {
     text-align: center;
     margin-bottom: 3rem;
@@ -112,6 +113,7 @@ body {
     line-height: 1.7;
 }
 
+/* FEATURES GRID */
 .features {
     display: grid;
     gap: 1.5rem;
@@ -138,6 +140,7 @@ body {
     color: var(--text-muted);
 }
 
+/* HOW IT WORKS & ABOUT SECTIONS */
 .how-it-works, .about {
     margin-bottom: 3rem;
 }
@@ -190,6 +193,7 @@ body {
     margin-bottom: 1.5rem;
 }
 
+/* FOOTER */
 .footer {
     text-align: center;
     padding: 2rem;
@@ -208,13 +212,16 @@ body {
     text-decoration: underline;
 }
 
-/* Responsive design */
+/* RESPONSIVE DESIGN */
+/* Tablet and mobile - sidebar becomes full width top section */
 @media (max-width: 1024px) {
-    /* Tablet and smaller - sidebar becomes top navigation */
+    .container {
+        flex-direction: column; /* ONLY change to column on tablet/mobile */
+    }
+    
     .sidebar {
         width: 100%;
         height: auto;
-        position: relative;
         border-right: none;
         border-bottom: 1px solid var(--border);
         margin-bottom: 2rem;
@@ -224,14 +231,10 @@ body {
         margin: 0;
         padding: 1.5rem;
     }
-    
-    .container {
-        flex-direction: column;
-    }
 }
 
+/* Mobile adjustments */
 @media (max-width: 480px) {
-    /* Mobile adjustments */
     .hero h2 {
         font-size: 1.5rem;
     }
