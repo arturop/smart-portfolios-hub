@@ -266,3 +266,14 @@ body {
         padding: 1rem;
     }
 }
+
+/* Estilo para enlace activo en sidebar */
+.nav-link.active {
+    background-color: var(--primary);
+    color: white;
+    font-weight: 500;
+}
+
+.nav-link.active:hover {
+    background-color: var(--primary-dark);
+}
