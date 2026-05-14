@@ -6,6 +6,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/layout.css">
     <link rel="stylesheet" href="assets/css/components.css">
+    <style>
+        /* CSS INLINE TEMPORAL - FORZAR LAYOUT GRID */
+        .container {
+            display: grid !important;
+            grid-template-columns: 260px 1fr !important;
+            min-height: 100vh !important;
+        }
+        
+        header {
+            grid-column: 1 / -1 !important;
+            padding: 2rem !important;
+            background: var(--surface) !important;
+            border-bottom: 1px solid var(--border) !important;
+        }
+        
+        .sidebar {
+            grid-column: 1 !important;
+            width: 260px !important;
+            background: var(--surface) !important;
+            border-right: 1px solid var(--border) !important;
+            padding: 2rem 1.5rem !important;
+        }
+        
+        .main-content {
+            grid-column: 2 !important;
+            max-width: 900px !important;
+            margin: 0 auto !important;
+            padding: 2rem !important;
+        }
+        
+        footer {
+            grid-column: 1 / -1 !important;
+            text-align: center !important;
+            padding: 2rem !important;
+            border-top: 1px solid var(--border) !important;
+            margin-top: 3rem !important;
+        }
+        
+        @media (max-width: 767px) {
+            .container {
+                grid-template-columns: 1fr !important;
+            }
+            
+            .sidebar {
+                grid-column: 1 / -1 !important;
+                width: 100% !important;
+                border-right: none !important;
+                border-bottom: 1px solid var(--border) !important;
+            }
+            
+            .main-content {
+                grid-column: 1 / -1 !important;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
